@@ -6,6 +6,8 @@ import 'package:flutter_with_provider/services/initialize_service.dart';
 import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
 
+import 'constants/routes.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   InitializeService().init();
@@ -23,6 +25,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
+        getPages: routes,
         home: InitPage(),
       ),
     );

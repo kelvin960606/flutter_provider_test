@@ -12,6 +12,7 @@ class AuthProvider extends ChangeNotifier {
         message: "Login Successfully",
         duration: Duration(seconds: 3),
       ));
+      Get.toNamed('/home');
       notifyListeners();
     });
   }
@@ -24,6 +25,7 @@ class AuthProvider extends ChangeNotifier {
         message: "Logout Successfully",
         duration: Duration(seconds: 3),
       ));
+      Get.toNamed('/login');
       notifyListeners();
     });
   }
