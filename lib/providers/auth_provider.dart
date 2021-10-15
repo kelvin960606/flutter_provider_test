@@ -7,12 +7,12 @@ class AuthProvider extends ChangeNotifier {
   Future login() async {
     Future.delayed(Duration(seconds: 1), () {
       isLogined = true;
+      Get.toNamed('/home');
       Get.showSnackbar(GetBar(
         title: "Authentication",
         message: "Login Successfully",
         duration: Duration(seconds: 3),
       ));
-      Get.toNamed('/home');
       notifyListeners();
     });
   }
@@ -20,12 +20,12 @@ class AuthProvider extends ChangeNotifier {
   Future logout() async {
     Future.delayed(Duration(seconds: 1), () {
       isLogined = false;
+      Get.toNamed('/login');
       Get.showSnackbar(GetBar(
         title: "Authentication",
         message: "Logout Successfully",
         duration: Duration(seconds: 3),
       ));
-      Get.toNamed('/login');
       notifyListeners();
     });
   }
