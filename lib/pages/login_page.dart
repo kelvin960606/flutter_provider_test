@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_with_provider/components/background.dart';
 import 'package:flutter_with_provider/providers/auth_provider.dart';
+import 'package:flutter_with_provider/services/api_service.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -13,6 +15,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   late TextEditingController username;
   late TextEditingController password;
+  ApiService apiService = Get.find();
 
   @override
   void initState() {
@@ -83,9 +86,12 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               alignment: Alignment.centerRight,
               margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-              child: Text(
-                "Forgot your password?",
-                style: TextStyle(fontSize: 12, color: Color(0XFF2661FA)),
+              child: InkWell(
+                onTap: _forgetPressed,
+                child: Text(
+                  "Forgot your password?",
+                  style: TextStyle(fontSize: 12, color: Color(0XFF2661FA)),
+                ),
               ),
             ),
             SizedBox(height: size.height * 0.05),
@@ -93,9 +99,7 @@ class _LoginPageState extends State<LoginPage> {
               alignment: Alignment.centerRight,
               margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
               child: ElevatedButton(
-                onPressed: () {
-                  _loginPressed();
-                },
+                onPressed: _loginPressed,
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.all(0),
                   primary:
@@ -128,11 +132,7 @@ class _LoginPageState extends State<LoginPage> {
               alignment: Alignment.centerRight,
               margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
               child: GestureDetector(
-                onTap: () {
-                  _signupPressed();
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => Container()))
-                },
+                onTap: _signupPressed,
                 child: Text(
                   "Don't Have an Account? Sign up",
                   style: TextStyle(
