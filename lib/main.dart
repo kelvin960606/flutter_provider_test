@@ -1,7 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_with_provider/pages/home_page.dart';
-import 'package:flutter_with_provider/pages/login_page.dart';
 import 'package:flutter_with_provider/providers/index.dart';
 import 'package:flutter_with_provider/services/initialize_service.dart';
 import 'package:get/route_manager.dart';

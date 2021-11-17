@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_with_provider/components/page_container.dart';
-import 'package:flutter_with_provider/constants/image.dart';
 import 'package:flutter_with_provider/constants/value.dart';
 import 'package:flutter_with_provider/providers/auth_provider.dart';
 import 'package:get/get.dart';
