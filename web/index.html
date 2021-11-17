@@ -27,6 +27,20 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script>
+     const firebaseConfig = {
+      apiKey: "AIzaSyB6Uzlp8b2Z56oaFiajaHpll_-46J8vrqI",
+      authDomain: "flutterprovidertest.firebaseapp.com",
+      projectId: "flutterprovidertest",
+      storageBucket: "flutterprovidertest.appspot.com",
+      messagingSenderId: "301164269115",
+      appId: "1:301164269115:web:94372c40c0a70b91ef561e"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->

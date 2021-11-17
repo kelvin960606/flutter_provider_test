@@ -1,12 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_with_provider/pages/home_page.dart';
 import 'package:flutter_with_provider/pages/login_page.dart';
 import 'package:flutter_with_provider/providers/index.dart';
 import 'package:flutter_with_provider/services/initialize_service.dart';
 import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
 
+import 'components/authenticate.dart';
 import 'constants/routes.dart';
+import 'constants/value.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,8 +25,11 @@ class MyApp extends StatelessWidget {
       child: GetMaterialApp(
         title: 'Flutter Provider Test',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: bgColor,
+          // textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
+          //     .apply(bodyColor: Colors.white),
+          canvasColor: secondaryColor,
         ),
         getPages: routes,
         home: InitPage(),
@@ -44,6 +50,12 @@ class _InitPageState extends State<InitPage> {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   @override
+  void initState() {
+    InitializeService().initAuthService(context);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       // Initialize FlutterFire:
@@ -56,7 +68,7 @@ class _InitPageState extends State<InitPage> {
 
         // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
-          return LoginPage();
+          return Authenticate();
         }
 
         // Otherwise, show something whilst waiting for initialization to complete
